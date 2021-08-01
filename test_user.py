@@ -1,5 +1,6 @@
 import unittest # Import unittest module.
 from users import User # Import from users.py
+from credentials import Credentials # Import from credentials.py
 
 class TestUser(unittest.TestCase):
     def setUp(self):
@@ -28,6 +29,19 @@ class TestUser(unittest.TestCase):
         
         self.new_account.save_account()
         self.assertEqual(len(User.users_list),1)
+        
+        
+    def test_login(self):
+        '''
+        Test for the login mechanism.
+        '''
+        
+        self.new_account.save_account()
+        test_user = User("test_user","test_password")
+        test_user.save_account()
+        
+        found_credentials = User.login("test_user","test_password")
+        self.assertEqual(found_credentials,Credentials.credentials_list)
         
         
 if __name__ == '__main__':

@@ -22,3 +22,20 @@ class Credentials:
         '''
         
         Credentials.credentials_list.remove(self)
+        
+    
+    @classmethod
+    def credentials_exist(cls,name):
+        '''
+        Method for checking for existence of credentials in an account.
+        '''
+        
+        for credentials in cls.credentials_list:
+            if credentials.username == name:
+                return credentials
+            
+        return False
+    
+    @classmethod
+    def display_credentials(cls):
+        return cls.credentials_list

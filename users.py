@@ -27,6 +27,12 @@ class User:
         User.users_list.append(self)
         
     @classmethod
+    def find_by_username(cls,username):
+        for user in cls.users_list:
+            if user.username == username:
+                return user
+        
+    @classmethod
     def login(cls,username,password):
         '''
         This allows a user to login as long as they have the username and password.

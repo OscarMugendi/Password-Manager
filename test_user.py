@@ -1,5 +1,5 @@
-import unittest
-from users import User
+import unittest # Import unittest module.
+from users import User # Import from users.py
 
 class TestUser(unittest.TestCase):
     def setUp(self):

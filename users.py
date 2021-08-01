@@ -3,7 +3,7 @@ class User:
     A class used to create new accounts.
     '''
     
-    accounts_list = [] # Empty list.
+    user_list = [] # Empty list.
     
     def __init__(self,username,password):
         '''

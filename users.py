@@ -3,7 +3,7 @@ class User:
     A class used to create new accounts.
     '''
     
-    user_list = [] # Empty list.
+    users_list = [] # Empty list.
     
     def __init__(self,username,password):
         '''
@@ -16,3 +16,10 @@ class User:
         
         self.username = username
         self.password = password
+        
+        
+    def save_account(self):
+        '''
+        Method for saving new accounts.
+        '''
+        User.users_list.append(self)

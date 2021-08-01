@@ -19,7 +19,15 @@ class TestUser(unittest.TestCase):
         Method for cleaning up after other tests.
         '''
         
-        User.user_list = []
+        User.users_list = []
+        
+    def test_save_account(self):
+        '''
+        Test to ensure new accounts can be saved to users_list.
+        '''
+        
+        self.new_account.save_account()
+        self.assertEqual(len(User.users_list),1)
         
         
 if __name__ == '__main__':

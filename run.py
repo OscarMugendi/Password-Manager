@@ -83,7 +83,6 @@ def main():
             su => Sign up
             lg => Log in
             ex => Exit
-            dl => Delete account credentials
         '''
     )
     print("\n")
@@ -110,11 +109,64 @@ def main():
             Email: {email}
             '''
         ) 
-        print("Press 'ex' to exit from the application")
+        print("Press 'lg' to login to your new account, or 'ex' to exit from the application.")
         print("\n")
         short_code = input().lower()
         if short_code == 'ex':
             print("Goodbye.")
+            
+        elif  short_code == 'lg':
+            print("\n")
+            print("Please enter your account username.")
+            username = input()
+            print("\n")
+            print("Please enter your password.")
+            password = input()
+            print("\n")
+        
+            login = User.login(username,password)
+        
+            if login ==True:
+                print(f"Login successful. Welcome back, {username}.")
+                print("\n")
+            
+                while True:
+                    print(
+                    '''
+                    More short_codes:-
+                        dc => Display Account Credentials.
+                        ex => Log out and exit the application.
+                    '''
+                    )
+                
+                    short_code = input().lower()
+                    if short_code == "dc":
+                        print("\n")
+                        for credentials in display_credentials():
+                            print(
+                            f'''
+                            User Info:-
+            
+                            Username: {credentials.username}
+                            Password: {credentials.password}
+                            Email: {credentials.email}
+                            '''
+                            )
+                            print("\n")
+                        
+                    elif short_code == "ex":
+                        print("\n")
+                        print("Goodbye.")
+                        print("\n")
+                        break
+                
+                    else:
+                        print("Instructions unclear, please refer to the short codes.")
+            
+            else:
+                print("\n")
+                print("Incorrect password. Acces denied.")
+                print("\n")
             
         else:
             print(
@@ -146,11 +198,10 @@ def main():
         password = input()
         print("\n")
         
-        login = check_account(username,password)
+        login = User.login(username,password)
         
         if login ==True:
-            print
-            print(f"Login successful. Welcome, {username}.")
+            print(f"Login successful. Welcome back, {username}.")
             print("\n")
             
             while True:
@@ -166,7 +217,15 @@ def main():
                 if short_code == "dc":
                     print("\n")
                     for credentials in display_credentials():
-                        print(f"Username:{credentials.username} Password:{credentials.password} Email:{credentials.email}") 
+                        print(
+                        f'''
+                        User Info:-
+            
+                        Username: {credentials.username}
+                        Password: {credentials.password}
+                        Email: {credentials.email}
+                        '''
+                        )
                         print("\n")
                         
                 elif short_code == "ex":
@@ -180,7 +239,7 @@ def main():
             
         else:
             print("\n")
-            print("Incorrect password")
+            print("Incorrect password. Acces denied.")
             print("\n")
                 
     elif short_code == "ex":

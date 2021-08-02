@@ -72,6 +72,7 @@ def main():
     '''
     
     print("\n")
+    # Our welcome page.
     print(
         '''
         Welcome to the Password Manager App.
@@ -80,13 +81,14 @@ def main():
         Use the following short codes to proceed:-
         
             su => Sign up
-            lg => Log In
+            lg => Log in
             ex => Exit
+            dl => Delete account credentials
         '''
     )
     print("\n")
     short_code = input().lower()
-    if short_code == "su":
+    if short_code == "su": # Signup for a new account.
         print("Let us create a new account.")
         username = input('Username:')
         print("\n")
@@ -99,6 +101,40 @@ def main():
         print("\n")
         
         print(f"Congratulations {username}, your account has been created.")
+        print(
+            f'''
+            User Info:-
+            
+            Username: {username}
+            Password: {password}
+            Email: {email}
+            '''
+        ) 
+        print("Press 'ex' to exit from the application")
+        print("\n")
+        short_code = input().lower()
+        if short_code == 'ex':
+            print("Goodbye.")
+            
+        else:
+            print(
+            f'''
+            User Info:-
+            
+            Username: {username}
+            Password: {password}
+            Email: {email}
+            '''
+            )
+            print("\n")
+            print("Instructions unclear, please refer to the short codes.")
+            short_code = input().lower()
+            if short_code == 'ex':
+                print("Goodbye.")
+                
+            else:
+                print("Instructions unclear, please refer to the short codes.")
+            
         print("\n")
         
     elif short_code == "lg":
@@ -138,11 +174,14 @@ def main():
                     print("Goodbye.")
                     print("\n")
                     break
+                
+                else:
+                    print("Instructions unclear, please refer to the short codes.")
             
-            else:
-                print("\n")
-                print("Incorrect password")
-                print("\n")
+        else:
+            print("\n")
+            print("Incorrect password")
+            print("\n")
                 
     elif short_code == "ex":
                 print("\n")

@@ -36,17 +36,6 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(len(Credentials.credentials_list),1)
         
         
-    def test_delete_credentials(self):
-        '''
-        Test for the delete functionality.
-        '''
-        
-        self.new_credentials.save_credentials()
-        test_credentials = Credentials("test_user","test_password","test_user@test_site.com")
-        test_credentials.save_credentials()
-        self.new_credentials.delete_credentials()
-        self.assertEqual(len(Credentials.credentials_list),1)
-        
     def test_credentials_exist(self):
         '''
         Boolean test for existence of credentials in an account.

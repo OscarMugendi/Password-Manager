@@ -14,15 +14,7 @@ class Credentials:
         Method for saving our user's credentials.
         '''
         
-        Credentials.credentials_list.append(self)
-        
-    def delete_credentials(self):
-        '''
-        Method for deleting our user's credentials.
-        '''
-        
-        Credentials.credentials_list.remove(self)
-        
+        Credentials.credentials_list.append(self)        
     
     @classmethod
     def credentials_exist(cls,name):
@@ -35,7 +27,3 @@ class Credentials:
                 return credentials
             
         return False
-    
-    @classmethod
-    def display_credentials(cls):
-        return cls.credentials_list

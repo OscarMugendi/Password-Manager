@@ -3,21 +3,21 @@
 from users import User
 from credentials import Credentials
 
-def create_account(username, password):
+def create_account(username,password):
     '''
     Used for creating new account
     '''
     
-    new_account = User(username, password)
+    new_account = User(username,password)
     return new_account
 
 
-def save_account(account):
+def save_account(user):
     '''
     Saves the new account.
     '''
     
-    account.save_account()
+    user.save_account()
     
     
 def create_credentials(username,password,email):
@@ -36,33 +36,14 @@ def save_credentials(credentials):
     
     credentials.save_account()
     
-
-def delete_credentials(credentials):
-    '''
-    Deletes a user account.
-    '''
-    
-    credentials.delete_account()
-    
 def login(username,password):
     '''
     Creates login functionality
     '''
     
-    login = User.login(username, password)
+    login = User.login(username,password)
     if login != False:
-        return User.login(username,password)
-    
-def search_account(username):
-    return User.find_by_username(username)
-    
-    
-def check_account(username,password):
-    return Credentials.display_credentials()
-    
-    
-def display_credentials():
-    return Credentials.display_credentials()
+        return User.login(username,password)    
     
 ### def main()
 
@@ -75,11 +56,12 @@ def main():
     # Our welcome page.
     print(
         '''
-        Welcome to the Password Manager App.
+        Welcome to the Password Manager Application.
+                
         A simple tool to help you manage your passwords.
+                           
         To continue, you must either login or sign up.
         Use the following short codes to proceed:-
-        
             su => Sign up
             lg => Log in
             ex => Exit
@@ -124,7 +106,7 @@ def main():
             password = input()
             print("\n")
         
-            login = User.login(username,password)
+            login = User(username,password)
         
             if login ==True:
                 print(f"Login successful. Welcome back, {username}.")
@@ -142,17 +124,16 @@ def main():
                     short_code = input().lower()
                     if short_code == "dc":
                         print("\n")
-                        for credentials in display_credentials():
-                            print(
-                            f'''
-                            User Info:-
+                        print(
+                        f'''
+                        User Info:-
             
-                            Username: {credentials.username}
-                            Password: {credentials.password}
-                            Email: {credentials.email}
-                            '''
-                            )
-                            print("\n")
+                        Username: {username}
+                        Password: {password}
+                        Email: {email}
+                        '''
+                        )
+                        print("\n")
                         
                     elif short_code == "ex":
                         print("\n")
@@ -216,17 +197,15 @@ def main():
                 short_code = input().lower()
                 if short_code == "dc":
                     print("\n")
-                    for credentials in display_credentials():
-                        print(
-                        f'''
-                        User Info:-
-            
-                        Username: {credentials.username}
-                        Password: {credentials.password}
-                        Email: {credentials.email}
-                        '''
-                        )
-                        print("\n")
+                    print(
+                    f'''
+                    User Info:-
+         
+                    Username: {username}
+                    Password: {password}
+                    '''
+                    )
+                    print("\n")
                         
                 elif short_code == "ex":
                     print("\n")

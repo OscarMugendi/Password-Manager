@@ -29,6 +29,6 @@ License MIT Copyright(c) 2021
 <ul>
     <li>su => Sign up for a new account.</li>
     <li>lg => Log in to an existing account.</li>
-    <li>ex => Exit from the application.</li>
     <li>dc => Display your account's credentials.</li>
+    <li>ex => Exit from the application.</li>
 </ul>

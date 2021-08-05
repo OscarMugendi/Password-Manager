@@ -106,7 +106,7 @@ def main():
             password = input()
             print("\n")
         
-            login = User(username,password)
+            login = User.login(username,password)
         
             if login ==True:
                 print(f"Login successful. Welcome back, {username}.")
